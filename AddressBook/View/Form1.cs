@@ -37,7 +37,7 @@ namespace AddressBook
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			List<adress> address = addresses.ReadAll();
-			List<person> person = persons.ReadAll();
+			
 			List<city> city = cities.ReadAll();
 
 			for (int section = 0; section < tableView.Columns.Count; section++)
@@ -46,9 +46,46 @@ namespace AddressBook
 				{
 					for (int j = 0; j < city.Count; j++)
 					{
+						city person = address[j].city;
 						tableView[j, (int)Sections.CitySection].Value = city[j].name;
 					}
 				}
+
+				if(section == (int)Sections.AddressSection)
+				{
+					for (int j = 0; j < city.Count; j++)
+					{
+						string addressString = address[j].street + " " + address[j].house + ", " +address[j].flat;
+						tableView[j, (int)Sections.CitySection].Value = addressString;
+					}
+				}
+
+				if (section == (int)Sections.FirstNameSection)
+				{
+					for (int j = 0; j < city.Count; j++)
+					{
+						string person = address[j].person.firstName;
+						tableView[j, (int)Sections.CitySection].Value = person;
+					}
+				}
+
+				if (section == (int)Sections.LastNameSection)
+				{
+					for (int j = 0; j < city.Count; j++)
+					{
+						string person = address[j].person.lastName;
+						tableView[j, (int)Sections.CitySection].Value = person;
+					}
+				}
+
+				//if (section == (int)Sections.PhoneSection)
+				//{
+				//	for (int j = 0; j < city.Count; j++)
+				//	{
+				//		string person = address[j].;
+				//		tableView[j, (int)Sections.CitySection].Value = person;
+				//	}
+				//}
 			}
 		}
 	}
