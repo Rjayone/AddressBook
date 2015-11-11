@@ -78,14 +78,14 @@ namespace AddressBook
 					}
 				}
 
-				//if (section == (int)Sections.PhoneSection)
-				//{
-				//	for (int j = 0; j < city.Count; j++)
-				//	{
-				//		string person = address[j].;
-				//		tableView[j, (int)Sections.CitySection].Value = person;
-				//	}
-				//}
+				if (section == (int)Sections.PhoneSection)
+				{
+					for (int j = 0; j < city.Count; j++)
+					{
+						string person = address[j].person.telephone;
+						tableView[j, (int)Sections.CitySection].Value = person;
+					}
+				}
 			}
 		}
 	}
