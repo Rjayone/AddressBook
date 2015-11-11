@@ -95,6 +95,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Models\AdressBook.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AdressBook.Designer.cs</LastGenOutput>

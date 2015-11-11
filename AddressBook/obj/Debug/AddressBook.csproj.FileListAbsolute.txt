@@ -1,3 +1,13 @@
 C:\Users\Andrew\Documents\Visual Studio 2013\Projects\RoomRent\AddressBook\AddressBook\bin\Debug\AddressBook.exe.config
 C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\bin\Debug\AddressBook.exe.config
 C:\Users\Ellen\Documents\GitHub\AddressBook\AddressBook\bin\Debug\AddressBook.exe.config
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\bin\Debug\AddressBook.exe
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\bin\Debug\AddressBook.pdb
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\bin\Debug\EntityFramework.dll
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\bin\Debug\EntityFramework.xml
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\obj\Debug\AddressBook.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\obj\Debug\AddressBook.Properties.Resources.resources
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\obj\Debug\AddressBook.Form1.resources
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\obj\Debug\AddressBook.csproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\obj\Debug\AddressBook.exe
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\AddressBook\AddressBook\obj\Debug\AddressBook.pdb

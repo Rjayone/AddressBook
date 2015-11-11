@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="adressbookModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adress">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCity" Type="int" Nullable="false" />
+    <Property Name="street" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="house" Type="int" Nullable="false" />
+    <Property Name="flat" Type="int" Nullable="false" />
+    <Property Name="idPerson" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="country" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" />
+    <Property Name="lastName" Type="varchar" MaxLength="45" />
+    <Property Name="telephone" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <Association Name="idCity">
+    <End Role="city" Type="Self.city" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="adress" Type="Self.adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="adress">
+        <PropertyRef Name="idCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idPerson">
+    <End Role="person" Type="Self.person" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="adress" Type="Self.adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="adress">
+        <PropertyRef Name="idPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="adressbookModelStoreContainer">
+    <EntitySet Name="adress" EntityType="Self.adress" Schema="adressbook" store:Type="Tables" />
+    <EntitySet Name="city" EntityType="Self.city" Schema="adressbook" store:Type="Tables" />
+    <EntitySet Name="person" EntityType="Self.person" Schema="adressbook" store:Type="Tables" />
+    <AssociationSet Name="idCity" Association="Self.idCity">
+      <End Role="city" EntitySet="city" />
+      <End Role="adress" EntitySet="adress" />
+    </AssociationSet>
+    <AssociationSet Name="idPerson" Association="Self.idPerson">
+      <End Role="person" EntitySet="person" />
+      <End Role="adress" EntitySet="adress" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
