@@ -13,12 +13,13 @@ namespace ConsoleApplication1.DAO
     {
         private AdressbookEntities context = new AdressbookEntities();
 
-        public person Create(string firstName, string name, string lastName)
+        public person Create(string firstName, string name, string lastName,string telephone)
         {
             person person = context.people.Create();
             person.firstName = firstName;
             person.name = name;
             person.lastName = lastName;
+            person.telephone = telephone;
             context.people.Add(person);
             context.SaveChanges();
             return person;
@@ -58,14 +59,14 @@ namespace ConsoleApplication1.DAO
             }
 
         }
-        public int Find(string firstName, string name, string lastName){
+        public int FindPerson(string firstName, string name, string lastName,string telephone){
             List<person> personList = context.people.SqlQuery("SELECT * from person WHERE person.firstName ='"+firstName+"'AND " +
-            "person.name='"+name+"'AND person.lastName='"+lastName+"'").ToList();
+            "person.name='"+name+"'AND person.lastName='"+lastName+"'AND person.telephone='"+telephone+"'").ToList();
 
             if (personList.Count == 0)
             {
                 
-                return Create(firstName, name, lastName).id;
+                return Create(firstName, name, lastName,telephone).id;
             }
 
             return personList[0].id;

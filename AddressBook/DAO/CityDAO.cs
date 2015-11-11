@@ -13,10 +13,11 @@ namespace ConsoleApplication1.DAO
     {
         private AdressbookEntities context = new AdressbookEntities();
 
-        public city Create(string name)
+        public city Create(string name, string country)
         {
             city city = context.cities.Create();
             city.name = name;
+            city.country = country;
             context.cities.Add(city);
             context.SaveChanges();
             return city;
@@ -41,19 +42,17 @@ namespace ConsoleApplication1.DAO
             context.SaveChanges();
         }
 
-
-        public int FindByName(string name)
+        public int FindCity(string name, string country)
         {
-            List<city> cityList = context.cities.SqlQuery("SELECT * from city WHERE city.name ='"+name+"'").ToList();
+            List<city> cityList = context.cities.SqlQuery("SELECT * from city WHERE city.name ='" + name + "' AND city.country='"+country+"'").ToList();
             if (cityList.Count == 0)
             {
-                
-                return Create(name).id;
+
+                return Create(name,country).id;
             }
 
             return cityList[0].id;
         }
-
         public void Delete(int id)
         {
             city city = context.cities.Find(id);
