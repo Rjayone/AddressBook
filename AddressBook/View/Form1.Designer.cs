@@ -32,6 +32,11 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.tableView = new System.Windows.Forms.DataGridView();
+			this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.tableView)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -73,10 +78,46 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tableView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.tableView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.City,
+            this.Address,
+            this.FirstName,
+            this.LastName,
+            this.Phone});
 			this.tableView.Location = new System.Drawing.Point(15, 40);
 			this.tableView.Name = "tableView";
 			this.tableView.Size = new System.Drawing.Size(917, 391);
 			this.tableView.TabIndex = 3;
+			// 
+			// City
+			// 
+			this.City.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.City.HeaderText = "City";
+			this.City.Name = "City";
+			// 
+			// Address
+			// 
+			this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.Address.HeaderText = "Address";
+			this.Address.Name = "Address";
+			// 
+			// FirstName
+			// 
+			this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.FirstName.HeaderText = "FirstName";
+			this.FirstName.Name = "FirstName";
+			// 
+			// LastName
+			// 
+			this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.LastName.HeaderText = "LastName";
+			this.LastName.Name = "LastName";
+			// 
+			// Phone
+			// 
+			this.Phone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.Phone.HeaderText = "Phone";
+			this.Phone.Name = "Phone";
 			// 
 			// Form1
 			// 
@@ -89,6 +130,7 @@
 			this.Controls.Add(this.button1);
 			this.Name = "Form1";
 			this.Text = "Form1";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.tableView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -101,6 +143,11 @@
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView tableView;
+		private System.Windows.Forms.DataGridViewTextBoxColumn City;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+		private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
 	}
 }
 
