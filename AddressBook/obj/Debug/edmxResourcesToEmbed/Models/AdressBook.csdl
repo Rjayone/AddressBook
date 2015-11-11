@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="adressbookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="adress">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCity" Type="Int32" Nullable="false" />
+    <Property Name="street" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="house" Type="Int32" Nullable="false" />
+    <Property Name="flat" Type="Int32" Nullable="false" />
+    <Property Name="idPerson" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="city" Relationship="Self.idCity" FromRole="adress" ToRole="city" />
+    <NavigationProperty Name="person" Relationship="Self.idPerson" FromRole="adress" ToRole="person" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="country" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="adresses" Relationship="Self.idCity" FromRole="city" ToRole="adress" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="telephone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="adresses" Relationship="Self.idPerson" FromRole="person" ToRole="adress" />
+  </EntityType>
+  <Association Name="idCity">
+    <End Role="city" Type="Self.city" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="adress" Type="Self.adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="adress">
+        <PropertyRef Name="idCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idPerson">
+    <End Role="person" Type="Self.person" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="adress" Type="Self.adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="adress">
+        <PropertyRef Name="idPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdressbookEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="adresses" EntityType="Self.adress" />
+    <EntitySet Name="cities" EntityType="Self.city" />
+    <EntitySet Name="people" EntityType="Self.person" />
+    <AssociationSet Name="idCity" Association="Self.idCity">
+      <End Role="city" EntitySet="cities" />
+      <End Role="adress" EntitySet="adresses" />
+    </AssociationSet>
+    <AssociationSet Name="idPerson" Association="Self.idPerson">
+      <End Role="person" EntitySet="people" />
+      <End Role="adress" EntitySet="adresses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

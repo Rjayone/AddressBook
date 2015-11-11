@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="adressbookModelStoreContainer" CdmEntityContainer="AdressbookEntities">
+    <EntitySetMapping Name="adresses">
+      <EntityTypeMapping TypeName="adressbookModel.adress">
+        <MappingFragment StoreEntitySet="adress">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idCity" ColumnName="idCity" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="house" ColumnName="house" />
+          <ScalarProperty Name="flat" ColumnName="flat" />
+          <ScalarProperty Name="idPerson" ColumnName="idPerson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="adressbookModel.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="people">
+      <EntityTypeMapping TypeName="adressbookModel.person">
+        <MappingFragment StoreEntitySet="person">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
